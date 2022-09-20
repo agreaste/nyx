@@ -2,11 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-code {
+.app {
+    @apply mx-auto max-w-screen-md pt-10;
+}
+
+.app code {
     @apply text-slate-600 bg-slate-100 rounded-md;
     font-size: .75rem !important;
 }
 
-p {
+.app p, .app a {
     @apply text-sm;
+}
+
+.app a {
+    @apply underline text-blue-400 mt-3;
 }
