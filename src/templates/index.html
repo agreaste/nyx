@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shadow Component Test</title>
+</head>
+<body>
+<main class="mx-auto max-w-screen-md pt-10">
+    <h1 class="text-5xl font-bold mb-8 text-slate-900 uppercase">Custom components vademecum</h1>
+    <div class="flex flex-col mb-6">
+        <h2 class="text-3xl font-bold mb-2 text-slate-700">Vanilla component</h2>
+        <div class="light">
+            <input type="text" name="light-input" id="light-input" required>
+            <label for="light-input">Vanilla input</label>
+        </div>
+        <p class="mb-4">This is a common input: wrapped in a div, with an appropriate label and attributes. The code
+            looks more or less like this:</p>
+        <code class="p-8 pl-12 mb-4">
+            &lt;div class=&quot;light&quot;&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type=&quot;text&quot; name=&quot;light-input&quot; id=&quot;light-input&quot;
+            required&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for=&quot;light-input&quot;&gt;Label for input&lt;/label&gt;<br>
+            &lt;/div&gt;
+        </code>
+        <p>In terms of accessibility this is a safe component: we have the input, the id, a visible label, everything is
+            fine.</p>
+    </div>
+    <div class="flex flex-col mb-6">
+        <h2 class="text-3xl font-bold mb-2 text-slate-700">Shadow component</h2>
+        <shadow-input type="text" name="test" id="test-shadow-input" text="Shadow input"></shadow-input>
+        <p class="mb-4">This is a shadow input: syntax is a bit shorter, but the result is almost the same... But it is
+            mounted on shadow dom, so it is darker:</p>
+        <code class="p-8 pl-12 mb-4">
+            &lt;shadow-input type=&quot;text&quot; name=&quot;test&quot; id=&quot;test-shadow-input&quot; text=&quot;label
+            for test shadow input&quot;&gt;&lt;/shadow-input&gt;
+        </code>
+        <p>Shadow component are accessibility safe if implemented in the same way of a vanilla component.
+            It requires a bit of attention on the semantic field: shadow component extends base html component such as
+            <code>&lt;p&gt;</code>, <code>&lt;span&gt;</code> or even <code>&lt;div&gt;</code> and
+            <code>&lt;form&gt;</code>.
+            <br>When implementing the component, keep in mind where the component will be placed and what it represents
+            semantically.
+        </p>
+    </div>
+    <div class="flex flex-col mb-6">
+        <h2 class="text-3xl font-bold mb-2 text-slate-700">Bad extension component</h2>
+        <input is="shadow-semantic-input" type="text" name="semantic-test" id="semantic-test"
+               title="Extension input"/>
+        <p class="mb-4">This is an extended input: this solution is more suitable in those use-cases where you need to
+            add functionalities to a standard tag... in this case is a bit an overkill:</p>
+        <code class="p-8 pl-12 mb-4">
+            &lt;input is=&quot;shadow-semantic-input&quot; type=&quot;text&quot; name=&quot;semantic-test&quot; id=&quot;semantic-test&quot;
+            title=&quot;Extension input&quot;/&gt;
+        </code>
+        <p>This is a good example of why extended functionalities should be limited to logics and not structures: as
+            screen readers and other assistive technology scan pages on load, it is not recommended to extend tags with
+            strict requirements.
+            This input field is missing label in declaration as the extended component will programmatically create one
+            on page load and swap <code>&lt;input&gt;</code> with something very similar to the former vanilla input
+            example.
+            <br>To assistive technologies this component is read as label-less even though the final layout contains a
+            label.
+            <br>Also notice that this example builds its label starting from the title attribute (which is allowed and
+            in certain ways even better than aria-label attribute), so the scanner won't rise critical error.</p>
+    </div>
+    <div class="flex flex-col mb-6">
+        <h2 class="text-3xl font-bold mb-2 text-slate-700">Good extension component</h2>
+        <div class="light">
+            <div class="combine-wrapper">
+            </div>
+            <input class="combine-input" type="text" name="clear-input" id="clear-input" required>
+            <label for="clear-input">Vanilla input</label>
+            <button class="combine-button" type="button" is="clear-button" value="clear-input">&times;<span class="sr-only">cancella</span></button>
+        </div>
+        <p class="mb-4">This exampel contains an extended button. The button target an input field using it id and clear the input when clicked:</p>
+        <code class="p-8 pl-12 mb-4">
+            &lt;div class=&quot;light&quot;&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;input class=&quot;combine-input&quot; type=&quot;text&quot; name=&quot;clear-input&quot; id=&quot;clear-input&quot; required&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for=&quot;clear-input&quot;&gt;Vanilla input&lt;/label&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class=&quot;combine-button&quot; type=&quot;button&quot; is=&quot;clear-button&quot; value=&quot;clear-input&quot;&gt;&amp;times;&lt;span class=&quot;sr-only&quot;&gt;cancella&lt;/span&gt;&lt;/button&gt;
+            <br>&lt;/div&gt;
+        </code>
+        <p>In this case the extended functionality is logic only, so it doesn't interfere with the semantic of the button tag.</p>
+    </div>
+</main>
+
+</body>
+</html>

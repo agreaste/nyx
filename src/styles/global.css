@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+code {
+    @apply text-slate-600 bg-slate-100 rounded-md;
+    font-size: .75rem !important;
+}
+
+p {
+    @apply text-sm;
+}
