@@ -5,7 +5,7 @@
     <title>Shadow Component Test</title>
 <script defer src="main.js"></script></head>
 <body>
-<main class="mx-auto max-w-screen-md pt-10">
+<main class="app">
     <h1 class="text-5xl font-bold mb-8 text-slate-900 uppercase">Custom components vademecum</h1>
     <div class="flex flex-col mb-6">
         <h2 class="text-3xl font-bold mb-2 text-slate-700">Vanilla component</h2>
@@ -41,6 +41,9 @@
             <br>When implementing the component, keep in mind where the component will be placed and what it represents
             semantically.
         </p>
+        <a href="https://github.com/agreaste/nyx/blob/main/src/js/shadow/shadowInput.js"
+           title="Visit component code page"
+           class="">Check shadow component code here</a>
     </div>
     <div class="flex flex-col mb-6">
         <h2 class="text-3xl font-bold mb-2 text-slate-700">Bad extension component</h2>
@@ -62,6 +65,9 @@
             label.
             <br>Also notice that this example builds its label starting from the title attribute (which is allowed and
             in certain ways even better than aria-label attribute), so the scanner won't rise critical error.</p>
+        <a href="https://github.com/agreaste/nyx/blob/main/src/js/shadow/extendedInput.js"
+           title="Visit component code page"
+           class="">Check extended component code here</a>
     </div>
     <div class="flex flex-col mb-6">
         <h2 class="text-3xl font-bold mb-2 text-slate-700">Good extension component</h2>
@@ -81,6 +87,9 @@
             <br>&lt;/div&gt;
         </code>
         <p>In this case the extended functionality is logic only, so it doesn't interfere with the semantic of the button tag.</p>
+        <a href="https://github.com/agreaste/nyx/blob/main/src/js/shadow/clearButton.js"
+           title="Visit component code page"
+           class="">Check button component code here</a>
     </div>
 </main>
 
