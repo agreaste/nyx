@@ -12,11 +12,11 @@ class ClearButton extends HTMLButtonElement {
             ...acc
         }), {});
 
-        const {value} = attributes;
+        const {'aria-controls': ariaControl} = attributes;
 
         root.addEventListener('click', (event) => {
             event.preventDefault();
-            document.getElementById(value).value = null;
+            document.getElementById(ariaControl).value = null;
         });
     }
 }

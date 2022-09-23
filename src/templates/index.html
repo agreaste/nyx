@@ -76,14 +76,14 @@
             </div>
             <input class="combine-input" type="text" name="clear-input" id="clear-input" required>
             <label for="clear-input">Vanilla input</label>
-            <button class="combine-button" type="button" is="clear-button" value="clear-input">&times;<span class="sr-only">cancella</span></button>
+            <button class="combine-button" type="button" is="clear-button" aria-controls="clear-input">&times;<span class="sr-only">cancella</span></button>
         </div>
         <p class="mb-4">This exampel contains an extended button. The button target an input field using it id and clear the input when clicked:</p>
         <code class="p-8 pl-12 mb-4">
             &lt;div class=&quot;light&quot;&gt;
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;input class=&quot;combine-input&quot; type=&quot;text&quot; name=&quot;clear-input&quot; id=&quot;clear-input&quot; required&gt;
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for=&quot;clear-input&quot;&gt;Vanilla input&lt;/label&gt;
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class=&quot;combine-button&quot; type=&quot;button&quot; is=&quot;clear-button&quot; value=&quot;clear-input&quot;&gt;&amp;times;&lt;span class=&quot;sr-only&quot;&gt;cancella&lt;/span&gt;&lt;/button&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class=&quot;combine-button&quot; type=&quot;button&quot; is=&quot;clear-button&quot; aria-controls=&quot;clear-input&quot;&gt;&amp;times;&lt;span class=&quot;sr-only&quot;&gt;cancella&lt;/span&gt;&lt;/button&gt;
             <br>&lt;/div&gt;
         </code>
         <p>In this case the extended functionality is logic only, so it doesn't interfere with the semantic of the button tag.</p>
